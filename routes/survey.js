@@ -1,8 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const survey = require('../config/survey');
 
 router.get('/', function(req, res, next) {
-  res.render('survey');
+  res.render('survey', {survey});
+});
+
+router.post('/', function(req, res, next) {
+  console.log(req.body);
 });
 
 module.exports = router;

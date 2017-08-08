@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	div.header
+		h1 Friend Finder Survey!
+	div
+		form(action='/survey' method='POST')
+			- var n = 0;
+				while n < survey.questions.length
+					section
+						label.question= survey.questions[n]
+						select.form-control(name=n+1)
+							option 1 (Strongly Disagree)
+							option 2
+							option 3 (Neutral)
+							option 4
+							option 5 (Strongly Agree)
+					- n++
+			button Submit

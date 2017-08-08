@@ -1,4 +1,4 @@
-{
+module.exports = {
 	"questions": [
 		"I often feel blue.",
 		"I feel comfortable around people.",
