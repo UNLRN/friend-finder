@@ -4,16 +4,32 @@ block content
 	div.header
 		h1 Friend Finder Survey!
 	div
-		form(action='/survey' method='POST')
+		form#survey
 			- var n = 0;
 				while n < survey.questions.length
 					section
 						label.question= survey.questions[n]
 						select.form-control(name=n+1)
-							option 1 (Strongly Disagree)
+							option 1
 							option 2
-							option 3 (Neutral)
+							option 3
 							option 4
-							option 5 (Strongly Agree)
+							option 5
 					- n++
-			button Submit
+			button.submit Submit
+
+	.modal.fade#my-modal(tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel")
+		.modal-dialog.modal-lg(role="document")
+			.modal-content
+				.modal-header
+					button.close(type="button" data-dismiss="modal" aria-label="Close")
+					span(aria-hidden="true")
+					h4.modal-title Your New Friend!
+					.modal-body
+						h1#friendsName
+						img#friendsImage
+
+block scripts
+	script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
+	script(src='/javascripts/bootstrap.min.js')
+	script(src='/javascripts/main.js')
